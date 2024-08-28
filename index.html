@@ -14,7 +14,7 @@
       </div>
     </header>
     <main>
-      <section class="grid">
+      <section class="hero grid">
         <div class="intro-container">
           <h1>
             Body Mass <br />
@@ -48,14 +48,14 @@
               <div class="metric_height">
                 <label for="height-cm">Height</label>
                 <div class="input-group">
-                  <input type="text" name="height-cm" id="height-cm" placeholder="0" />
+                  <input type="text" name="height-cm" id="height-cm" placeholder="0" maxlength="3" />
                   <span class="unit">cm</span>
                 </div>
               </div>
               <div class="metric_weight">
                 <label for="weight-kg">Weight</label>
                 <div class="input-group">
-                  <input type="text" name="weight-kg" id="weight-kg" placeholder="0" />
+                  <input type="text" name="weight-kg" id="weight-kg" placeholder="0" maxlength="3" />
                   <span class="unit">kg</span>
                 </div>
               </div>
@@ -65,13 +65,13 @@
                 <div>
                   <label for="height-ft">Height</label>
                   <div class="input-group">
-                    <input type="text" name="height-ft" id="height-ft" placeholder="0" />
+                    <input type="text" name="height-ft" id="height-ft" placeholder="0" maxlength="3" />
                     <span class="unit">ft</span>
                   </div>
                 </div>
                 <div>
                   <div class="input-group">
-                    <input type="text" name="height-in" id="height-in" placeholder="0" />
+                    <input type="text" name="height-in" id="height-in" placeholder="0" maxlength="3" />
                     <span class="unit">in</span>
                   </div>
                 </div>
@@ -80,13 +80,13 @@
                 <div>
                   <label for="weight-st">Weight</label>
                   <div class="input-group">
-                    <input type="text" name="weight-st" id="weight-st" placeholder="0" />
+                    <input type="text" name="weight-st" id="weight-st" placeholder="0" maxlength="3" />
                     <span class="unit">st</span>
                   </div>
                 </div>
                 <div>
                   <div class="input-group">
-                    <input type="text" name="weight-lbs" id="weight-lbs" placeholder="0" />
+                    <input type="text" name="weight-lbs" id="weight-lbs" placeholder="0" maxlength="3" />
                     <span class="unit">lbs</span>
                   </div>
                 </div>
@@ -104,10 +104,31 @@
                 <span id="bmi-count">23</span>
               </div>
               <div class="desc">
-                <p>Your BMI suggests you’re a healthy weight. Your ideal weight is between 63.3kgs - 85.2kgs.</p>
+                <p>
+                  Your BMI suggests you’re a healthy weight. Your ideal weight is between
+                  <strong><span id="minWeight">63.3</span>kgs - <span id="maxWeight">85.2</span>kgs</strong>.
+                </p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="explanation grid">
+        <div class="image-wrapper">
+          <picture>
+            <!-- <source srcset="/assets/person-tablet.png, /assets/person-tablet-2x.png 2x" media="(min-width: 768px)" /> -->
+            <source srcset="/assets/person-mobile.png, /assets/person-mobile-2x.png 2x" media="(max-width: 767px)" />
+            <source srcset="/assets/person-tablet.png, /assets/person-tablet-2x.png 2x" media="(max-width: 991px)" />
+            <img srcset="/assets/person.png, /assets/person-2x.png 2x" src="assets/person.png" height="auto" width="100%" alt="Person" />
+          </picture>
+        </div>
+        <div class="content-wrapper">
+          <h2>What your BMI result means</h2>
+          <p>
+            A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a healthy weight may lower your chances of experiencing health
+            issues later on, such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced fat and sugar content, incorporating ample
+            fruits and vegetables. Additionally, strive for regular physical activity, ideally about 30 minutes daily for five days a week.
+          </p>
         </div>
       </section>
     </main>
