@@ -43,34 +43,41 @@ body {
   }
 }
 
-header {
-  margin-top: 4.75rem;
-  margin-bottom: 1.75rem;
-
-  @media (max-width: 992px) {
-    margin-top: 2rem;
-    margin-bottom: 2.625rem;
-  }
-
-  .logo-container {
-    grid-column-start: 2;
-
-    @media (max-width: 992px) {
-      grid-column: 2 / 14;
-      text-align: center;
-    }
-  }
-}
-
 section {
   &.hero {
-    margin-bottom: 4rem;
-
-    // background-image: url("/assets/hero-rectangle.png");
-    // background-repeat: no-repeat;
+    margin-bottom: 5.25rem;
+    padding-bottom: 6.5rem;
+    padding-top: 4.75rem;
+    position: relative;
+    overflow: hidden;
 
     @media (max-width: 992px) {
+      padding-top: 2rem;
       margin-bottom: 6rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      grid-column: 1 / 11;
+      z-index: -1;
+
+      @media (max-width: 992px) {
+        top: 0;
+        bottom: auto;
+        grid-column: 1 / 15;
+      }
+    }
+
+    .logo-container {
+      grid-column: 2 / 14;
+      margin-bottom: 0cqb;
+
+      @media (max-width: 992px) {
+        margin-bottom: 1.625rem;
+        text-align: center;
+      }
     }
 
     .intro-container {
