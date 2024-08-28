@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
+:root {
+  --white: #fff;
+  --blue: #345ff6;
+  --metal: #253347;
+  --electric-blue: #5e6e85;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.hide {
+  display: none !important;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr repeat(12, calc((100% - 64px - 176px) / 12)) 1fr;
+  gap: 1rem;
+}
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: 1fr repeat(12, 67.3333333333px) 1fr;
+    gap: 2rem;
+  }
+}
+
+header {
+  margin-top: 4.75rem;
+  margin-bottom: 1.75rem;
+}
+@media (max-width: 992px) {
+  header {
+    margin-top: 2rem;
+    margin-bottom: 2.625rem;
+  }
+}
+header .logo-container {
+  grid-column-start: 2;
+}
+@media (max-width: 992px) {
+  header .logo-container {
+    grid-column: 2/14;
+    text-align: center;
+  }
+}
+
+section .intro-container {
+  grid-column: 2/8;
+  margin-top: 5.5rem;
+}
+@media (max-width: 992px) {
+  section .intro-container {
+    grid-column: 2/14;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+}
+section .intro-container h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--metal);
+}
+@media (max-width: 1100px) {
+  section .intro-container h1 {
+    font-size: 3.75rem;
+  }
+}
+@media (max-width: 992px) {
+  section .intro-container h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+}
+section .intro-container p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--electric-blue);
+  max-width: 29rem;
+}
+@media (max-width: 992px) {
+  section .intro-container p {
+    max-width: 100%;
+  }
+}
+section .calculator-container {
+  grid-column: 8/14;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 45px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 992px) {
+  section .calculator-container {
+    grid-column: 2/14;
+  }
+}
+@media (max-width: 768px) {
+  section .calculator-container {
+    padding: 1.5rem;
+  }
+}
+section .calculator-container > strong {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--metal);
+  margin-bottom: 2rem;
+  display: block;
+}
+@media (max-width: 568px) {
+  section .calculator-container > strong {
+    font-size: 1.275rem;
+  }
+}
+section .calculator-container .radio-group {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+section .calculator-container .radio-group .radio {
+  width: 50%;
+}
+section .calculator-container .radio-group .radio .custom-radio {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--metal);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 45px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  height: 32px;
+}
+section .calculator-container .radio-group .radio .custom-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+section .calculator-container .radio-group .radio .custom-radio .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 31px;
+  width: 31px;
+  border-radius: 100%;
+  border: 1px solid #6c9aa3;
+}
+section .calculator-container .radio-group .radio .custom-radio:hover input ~ .checkmark {
+  border-color: var(--blue);
+}
+section .calculator-container .radio-group .radio .custom-radio input:checked ~ .checkmark {
+  background-color: #d8e2e7;
+  border-color: #d8e2e7;
+}
+section .calculator-container .radio-group .radio .custom-radio .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+section .calculator-container .radio-group .radio .custom-radio input:checked ~ .checkmark:after {
+  display: block;
+}
+section .calculator-container .radio-group .radio .custom-radio .checkmark:after {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  background-color: var(--blue);
+  border-radius: 100%;
+}
+section .calculator-container .input-container {
+  margin-bottom: 2rem;
+}
+section .calculator-container .input-container .metric,
+section .calculator-container .input-container .imperial {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+@media (max-width: 768px) {
+  section .calculator-container .input-container .metric,
+  section .calculator-container .input-container .imperial {
+    flex-direction: column;
+  }
+}
+section .calculator-container .input-container .metric .metric_height,
+section .calculator-container .input-container .metric .metric_weight,
+section .calculator-container .input-container .metric .imperial_height,
+section .calculator-container .input-container .metric .imperial_weight,
+section .calculator-container .input-container .imperial .metric_height,
+section .calculator-container .input-container .imperial .metric_weight,
+section .calculator-container .input-container .imperial .imperial_height,
+section .calculator-container .input-container .imperial .imperial_weight {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+section .calculator-container .input-container .metric .metric_height label,
+section .calculator-container .input-container .metric .metric_weight label,
+section .calculator-container .input-container .metric .imperial_height label,
+section .calculator-container .input-container .metric .imperial_weight label,
+section .calculator-container .input-container .imperial .metric_height label,
+section .calculator-container .input-container .imperial .metric_weight label,
+section .calculator-container .input-container .imperial .imperial_height label,
+section .calculator-container .input-container .imperial .imperial_weight label {
+  font-size: 0.875rem;
+  color: #5e6e85;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+section .calculator-container .input-container .metric .metric_height .input-group,
+section .calculator-container .input-container .metric .metric_weight .input-group,
+section .calculator-container .input-container .metric .imperial_height .input-group,
+section .calculator-container .input-container .metric .imperial_weight .input-group,
+section .calculator-container .input-container .imperial .metric_height .input-group,
+section .calculator-container .input-container .imperial .metric_weight .input-group,
+section .calculator-container .input-container .imperial .imperial_height .input-group,
+section .calculator-container .input-container .imperial .imperial_weight .input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+section .calculator-container .input-container .metric .metric_height .input-group input,
+section .calculator-container .input-container .metric .metric_weight .input-group input,
+section .calculator-container .input-container .metric .imperial_height .input-group input,
+section .calculator-container .input-container .metric .imperial_weight .input-group input,
+section .calculator-container .input-container .imperial .metric_height .input-group input,
+section .calculator-container .input-container .imperial .metric_weight .input-group input,
+section .calculator-container .input-container .imperial .imperial_height .input-group input,
+section .calculator-container .input-container .imperial .imperial_weight .input-group input {
+  border: 1px solid #d8e2e7;
+  border-radius: 12px;
+  padding: 1.25rem 5.25rem 1.25rem 1.5rem;
+  font-size: 1.5rem;
+  color: var(--metal);
+  font-weight: 600;
+  width: 100%;
+  position: relative;
+  outline: none;
+}
+section .calculator-container .input-container .metric .metric_height .input-group input::-moz-placeholder, section .calculator-container .input-container .metric .metric_weight .input-group input::-moz-placeholder, section .calculator-container .input-container .metric .imperial_height .input-group input::-moz-placeholder, section .calculator-container .input-container .metric .imperial_weight .input-group input::-moz-placeholder, section .calculator-container .input-container .imperial .metric_height .input-group input::-moz-placeholder, section .calculator-container .input-container .imperial .metric_weight .input-group input::-moz-placeholder, section .calculator-container .input-container .imperial .imperial_height .input-group input::-moz-placeholder, section .calculator-container .input-container .imperial .imperial_weight .input-group input::-moz-placeholder {
+  font-weight: 600;
+  color: rgba(37, 51, 71, 0.25);
+  font-size: 1.5rem;
+}
+section .calculator-container .input-container .metric .metric_height .input-group input::placeholder,
+section .calculator-container .input-container .metric .metric_weight .input-group input::placeholder,
+section .calculator-container .input-container .metric .imperial_height .input-group input::placeholder,
+section .calculator-container .input-container .metric .imperial_weight .input-group input::placeholder,
+section .calculator-container .input-container .imperial .metric_height .input-group input::placeholder,
+section .calculator-container .input-container .imperial .metric_weight .input-group input::placeholder,
+section .calculator-container .input-container .imperial .imperial_height .input-group input::placeholder,
+section .calculator-container .input-container .imperial .imperial_weight .input-group input::placeholder {
+  font-weight: 600;
+  color: rgba(37, 51, 71, 0.25);
+  font-size: 1.5rem;
+}
+section .calculator-container .input-container .metric .metric_height .input-group input:focus-within, section .calculator-container .input-container .metric .metric_height .input-group input:focus,
+section .calculator-container .input-container .metric .metric_weight .input-group input:focus-within,
+section .calculator-container .input-container .metric .metric_weight .input-group input:focus,
+section .calculator-container .input-container .metric .imperial_height .input-group input:focus-within,
+section .calculator-container .input-container .metric .imperial_height .input-group input:focus,
+section .calculator-container .input-container .metric .imperial_weight .input-group input:focus-within,
+section .calculator-container .input-container .metric .imperial_weight .input-group input:focus,
+section .calculator-container .input-container .imperial .metric_height .input-group input:focus-within,
+section .calculator-container .input-container .imperial .metric_height .input-group input:focus,
+section .calculator-container .input-container .imperial .metric_weight .input-group input:focus-within,
+section .calculator-container .input-container .imperial .metric_weight .input-group input:focus,
+section .calculator-container .input-container .imperial .imperial_height .input-group input:focus-within,
+section .calculator-container .input-container .imperial .imperial_height .input-group input:focus,
+section .calculator-container .input-container .imperial .imperial_weight .input-group input:focus-within,
+section .calculator-container .input-container .imperial .imperial_weight .input-group input:focus {
+  border-color: var(--blue);
+}
+section .calculator-container .input-container .metric .metric_height .input-group input:not(:-moz-placeholder-shown) + .unit, section .calculator-container .input-container .metric .metric_weight .input-group input:not(:-moz-placeholder-shown) + .unit, section .calculator-container .input-container .metric .imperial_height .input-group input:not(:-moz-placeholder-shown) + .unit, section .calculator-container .input-container .metric .imperial_weight .input-group input:not(:-moz-placeholder-shown) + .unit, section .calculator-container .input-container .imperial .metric_height .input-group input:not(:-moz-placeholder-shown) + .unit, section .calculator-container .input-container .imperial .metric_weight .input-group input:not(:-moz-placeholder-shown) + .unit, section .calculator-container .input-container .imperial .imperial_height .input-group input:not(:-moz-placeholder-shown) + .unit, section .calculator-container .input-container .imperial .imperial_weight .input-group input:not(:-moz-placeholder-shown) + .unit {
+  left: calc(100% - 4.25rem);
+}
+section .calculator-container .input-container .metric .metric_height .input-group input:focus-within + .unit, section .calculator-container .input-container .metric .metric_height .input-group input:focus + .unit, section .calculator-container .input-container .metric .metric_height .input-group input:not(:placeholder-shown) + .unit,
+section .calculator-container .input-container .metric .metric_weight .input-group input:focus-within + .unit,
+section .calculator-container .input-container .metric .metric_weight .input-group input:focus + .unit,
+section .calculator-container .input-container .metric .metric_weight .input-group input:not(:placeholder-shown) + .unit,
+section .calculator-container .input-container .metric .imperial_height .input-group input:focus-within + .unit,
+section .calculator-container .input-container .metric .imperial_height .input-group input:focus + .unit,
+section .calculator-container .input-container .metric .imperial_height .input-group input:not(:placeholder-shown) + .unit,
+section .calculator-container .input-container .metric .imperial_weight .input-group input:focus-within + .unit,
+section .calculator-container .input-container .metric .imperial_weight .input-group input:focus + .unit,
+section .calculator-container .input-container .metric .imperial_weight .input-group input:not(:placeholder-shown) + .unit,
+section .calculator-container .input-container .imperial .metric_height .input-group input:focus-within + .unit,
+section .calculator-container .input-container .imperial .metric_height .input-group input:focus + .unit,
+section .calculator-container .input-container .imperial .metric_height .input-group input:not(:placeholder-shown) + .unit,
+section .calculator-container .input-container .imperial .metric_weight .input-group input:focus-within + .unit,
+section .calculator-container .input-container .imperial .metric_weight .input-group input:focus + .unit,
+section .calculator-container .input-container .imperial .metric_weight .input-group input:not(:placeholder-shown) + .unit,
+section .calculator-container .input-container .imperial .imperial_height .input-group input:focus-within + .unit,
+section .calculator-container .input-container .imperial .imperial_height .input-group input:focus + .unit,
+section .calculator-container .input-container .imperial .imperial_height .input-group input:not(:placeholder-shown) + .unit,
+section .calculator-container .input-container .imperial .imperial_weight .input-group input:focus-within + .unit,
+section .calculator-container .input-container .imperial .imperial_weight .input-group input:focus + .unit,
+section .calculator-container .input-container .imperial .imperial_weight .input-group input:not(:placeholder-shown) + .unit {
+  left: calc(100% - 4.25rem);
+}
+section .calculator-container .input-container .metric .metric_height .input-group input:-moz-placeholder-shown:not(:focus-within) + .unit, section .calculator-container .input-container .metric .metric_height .input-group input:-moz-placeholder-shown:not(:focus) + .unit, section .calculator-container .input-container .metric .metric_weight .input-group input:-moz-placeholder-shown:not(:focus-within) + .unit, section .calculator-container .input-container .metric .metric_weight .input-group input:-moz-placeholder-shown:not(:focus) + .unit, section .calculator-container .input-container .metric .imperial_height .input-group input:-moz-placeholder-shown:not(:focus-within) + .unit, section .calculator-container .input-container .metric .imperial_height .input-group input:-moz-placeholder-shown:not(:focus) + .unit, section .calculator-container .input-container .metric .imperial_weight .input-group input:-moz-placeholder-shown:not(:focus-within) + .unit, section .calculator-container .input-container .metric .imperial_weight .input-group input:-moz-placeholder-shown:not(:focus) + .unit, section .calculator-container .input-container .imperial .metric_height .input-group input:-moz-placeholder-shown:not(:focus-within) + .unit, section .calculator-container .input-container .imperial .metric_height .input-group input:-moz-placeholder-shown:not(:focus) + .unit, section .calculator-container .input-container .imperial .metric_weight .input-group input:-moz-placeholder-shown:not(:focus-within) + .unit, section .calculator-container .input-container .imperial .metric_weight .input-group input:-moz-placeholder-shown:not(:focus) + .unit, section .calculator-container .input-container .imperial .imperial_height .input-group input:-moz-placeholder-shown:not(:focus-within) + .unit, section .calculator-container .input-container .imperial .imperial_height .input-group input:-moz-placeholder-shown:not(:focus) + .unit, section .calculator-container .input-container .imperial .imperial_weight .input-group input:-moz-placeholder-shown:not(:focus-within) + .unit, section .calculator-container .input-container .imperial .imperial_weight .input-group input:-moz-placeholder-shown:not(:focus) + .unit {
+  left: 3.5rem;
+}
+section .calculator-container .input-container .metric .metric_height .input-group input:placeholder-shown:not(:focus-within) + .unit, section .calculator-container .input-container .metric .metric_height .input-group input:placeholder-shown:not(:focus) + .unit,
+section .calculator-container .input-container .metric .metric_weight .input-group input:placeholder-shown:not(:focus-within) + .unit,
+section .calculator-container .input-container .metric .metric_weight .input-group input:placeholder-shown:not(:focus) + .unit,
+section .calculator-container .input-container .metric .imperial_height .input-group input:placeholder-shown:not(:focus-within) + .unit,
+section .calculator-container .input-container .metric .imperial_height .input-group input:placeholder-shown:not(:focus) + .unit,
+section .calculator-container .input-container .metric .imperial_weight .input-group input:placeholder-shown:not(:focus-within) + .unit,
+section .calculator-container .input-container .metric .imperial_weight .input-group input:placeholder-shown:not(:focus) + .unit,
+section .calculator-container .input-container .imperial .metric_height .input-group input:placeholder-shown:not(:focus-within) + .unit,
+section .calculator-container .input-container .imperial .metric_height .input-group input:placeholder-shown:not(:focus) + .unit,
+section .calculator-container .input-container .imperial .metric_weight .input-group input:placeholder-shown:not(:focus-within) + .unit,
+section .calculator-container .input-container .imperial .metric_weight .input-group input:placeholder-shown:not(:focus) + .unit,
+section .calculator-container .input-container .imperial .imperial_height .input-group input:placeholder-shown:not(:focus-within) + .unit,
+section .calculator-container .input-container .imperial .imperial_height .input-group input:placeholder-shown:not(:focus) + .unit,
+section .calculator-container .input-container .imperial .imperial_weight .input-group input:placeholder-shown:not(:focus-within) + .unit,
+section .calculator-container .input-container .imperial .imperial_weight .input-group input:placeholder-shown:not(:focus) + .unit {
+  left: 3.5rem;
+}
+section .calculator-container .input-container .metric .metric_height .input-group .unit,
+section .calculator-container .input-container .metric .metric_weight .input-group .unit,
+section .calculator-container .input-container .metric .imperial_height .input-group .unit,
+section .calculator-container .input-container .metric .imperial_weight .input-group .unit,
+section .calculator-container .input-container .imperial .metric_height .input-group .unit,
+section .calculator-container .input-container .imperial .metric_weight .input-group .unit,
+section .calculator-container .input-container .imperial .imperial_height .input-group .unit,
+section .calculator-container .input-container .imperial .imperial_weight .input-group .unit {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--blue);
+  transition: left 0.3s ease-in-out;
+  width: 3rem;
+  text-align: right;
+}
+section .calculator-container .input-container .imperial {
+  flex-direction: column;
+}
+section .calculator-container .input-container .imperial .imperial_height,
+section .calculator-container .input-container .imperial .imperial_weight {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+section .calculator-container .result-container {
+  padding: 2rem;
+  background-color: var(--blue);
+  border-top-left-radius: 16rem;
+  border-bottom-left-radius: 16rem;
+  border-top-right-radius: 100rem;
+  border-bottom-right-radius: 100rem;
+}
+section .calculator-container .result-container > * {
+  color: #fff;
+}
+section .calculator-container .result-container .welcome strong {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: block;
+}
+section .calculator-container .result-container .welcome p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}/*# sourceMappingURL=styles.css.map */
