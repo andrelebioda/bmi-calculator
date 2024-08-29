@@ -50,12 +50,13 @@ section {
     padding-top: 4.75rem;
     position: relative;
     overflow: hidden;
-    row-gap: 1.913rem;
+    row-gap: 3rem;
 
     @media (max-width: 992px) {
       padding-top: 2rem;
       margin-bottom: 0rem;
       padding-bottom: 6rem;
+      row-gap: 2rem;
     }
 
     @media (max-width: 767px) {
@@ -68,7 +69,7 @@ section {
       right: 0;
       grid-column: 1 / 11;
       z-index: -1;
-      max-width: 97%;
+      max-width: 99%;
       height: 100%;
 
       @media (max-width: 992px) {
@@ -86,10 +87,10 @@ section {
 
     .logo-container {
       grid-column: 2 / 14;
-      margin-bottom: 0cqb;
+      margin-bottom: 0rem;
 
       @media (max-width: 992px) {
-        margin-bottom: 1.625rem;
+        margin-bottom: 0.625rem;
         text-align: center;
       }
     }
@@ -449,15 +450,28 @@ section {
     .content-wrapper {
       grid-column: 9 / 14;
       grid-row: 3 / 4;
+      margin-top: 4rem;
+      position: relative;
 
       @media (max-width: 992px) {
         grid-column: 8 / 14;
         grid-row: 1 / 5;
+        margin-top: 0;
       }
 
       @media (max-width: 767px) {
         grid-column: 2 / 14;
         grid-row: auto;
+      }
+
+      .curved-line {
+        position: absolute;
+        top: calc(-100% + 4rem);
+        right: 1rem;
+
+        @media (max-width: 992px) {
+          display: none;
+        }
       }
 
       h2 {
@@ -575,6 +589,14 @@ section {
 
     @media (max-width: 992px) {
       margin-bottom: 6rem;
+    }
+
+    .curved-line {
+      grid-column-end: 5;
+      grid-row: 2;
+      @media (max-width: 992px) {
+        display: none;
+      }
     }
 
     .limitation-intro {
