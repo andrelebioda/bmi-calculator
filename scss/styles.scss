@@ -57,6 +57,10 @@ section {
       padding-bottom: 6rem;
     }
 
+    @media (max-width: 767px) {
+      padding-bottom: 4.5rem;
+    }
+
     .hero-bg {
       position: absolute;
       bottom: 0;
@@ -406,7 +410,7 @@ section {
               font-size: 0.875rem;
               line-height: 1.5;
               color: #fff;
-              span {
+              strong {
                 font-weight: 600;
               }
             }
@@ -420,12 +424,10 @@ section {
     grid-template-rows: repeat(4, auto);
     margin-bottom: 6rem;
 
-    @media (max-width: 992px) {
-      margin-bottom: 4.5rem;
-    }
-
     @media (max-width: 767px) {
       align-items: flex-start;
+      margin-bottom: 4.5rem;
+      grid-template-rows: auto;
       row-gap: 2.5rem;
     }
 
@@ -483,6 +485,17 @@ section {
     position: relative;
     overflow: hidden;
 
+    @media (max-width: 992px) {
+      row-gap: 2.5rem;
+      padding-block: 3.75rem;
+      margin-bottom: 6rem;
+    }
+
+    @media (max-width: 767px) {
+      padding-block: 3.5rem;
+      margin-bottom: 4.5rem;
+    }
+
     .icons-bg {
       position: absolute;
       right: 1rem;
@@ -491,13 +504,6 @@ section {
       @media (max-width: 992px) {
         right: -5rem;
       }
-    }
-
-    @media (max-width: 992px) {
-      row-gap: 2.5rem;
-      padding-top: 4.75rem;
-      padding-bottom: 4.75rem;
-      margin-bottom: 6rem;
     }
 
     .icon-item {
@@ -579,6 +585,10 @@ section {
         grid-row: 1;
         margin-bottom: 4.5rem;
         text-align: center;
+      }
+
+      @media (max-width: 767px) {
+        margin-bottom: 3.5rem;
       }
 
       h2 {
@@ -666,8 +676,12 @@ section {
           }
         }
         &-race {
-          grid-column: 5 / 11;
-          grid-row: 4;
+          grid-column: 8 / 12;
+          grid-row: 3;
+          @media (max-width: 992px) {
+            grid-column: 5 / 11;
+            grid-row: 4;
+          }
         }
       }
     }

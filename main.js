@@ -2,6 +2,7 @@
 const radioBtn = document.querySelectorAll('.calculator-container .radio-group .radio input[type="radio"]');
 const metricContainer = document.querySelector(".input-container .metric");
 const imperialContainer = document.querySelector(".input-container .imperial");
+const notHealthy = document.querySelector("#not");
 
 //inputs
 const inputCM = document.querySelector(".input-container #height-cm");
@@ -52,7 +53,14 @@ const showContainer = (event) => {
 };
 
 const checkInput = (event) => {
-  if (isNaN(event.key) && event.key !== "Backspace" && event.key !== "." && event.keyCode !== 9) {
+  if (
+    isNaN(event.key) &&
+    event.key !== "Backspace" &&
+    event.key !== "." &&
+    event.key !== "ArrowRight" &&
+    event.key !== "ArrowLeft" &&
+    event.keyCode !== 9
+  ) {
     event.preventDefault();
   }
 };
@@ -61,17 +69,26 @@ const calculateMetric = () => {
   const valueCM = parseInt(inputCM.value);
   const valueKG = parseFloat(inputKG.value);
 
+  let bmi = 0;
+
   if (!isNaN(valueCM) && !isNaN(valueKG)) {
-    const bmi = valueKG / ((valueCM / 100) * (valueCM / 100));
+    bmi = valueKG / ((valueCM / 100) * (valueCM / 100));
+
+    let minWeightValue = (valueCM / 100) * (valueCM / 100) * 18.5;
+    let maxWeightValue = (valueCM / 100) * (valueCM / 100) * 25;
 
     welcomeSection.classList.add("hide");
     resultSection.classList.remove("hide");
 
     bmiCount.textContent = bmi.toFixed(1);
+    minWeight.textContent = minWeightValue.toFixed(1) + "kgs";
+    maxWeight.textContent = maxWeightValue.toFixed(1) + "kgs";
   } else {
     welcomeSection.classList.remove("hide");
     resultSection.classList.add("hide");
   }
+
+  showNotHealthy(bmi);
 };
 
 const calculateImperial = () => {
@@ -81,14 +98,42 @@ const calculateImperial = () => {
   const valueLBS = parseInt(inputLBS.value);
 
   if (!isNaN(valueFT) && !isNaN(valueIN) && !isNaN(valueST) && !isNaN(valueLBS)) {
-    const bmi = valueKG / ((valueCM / 100) * (valueCM / 100));
+    let st = valueST / 1;
+    let lb = valueLBS / 1;
+
+    let weight = (st + lb / 14) * 6.35029318;
+
+    let ft = valueFT / 1;
+    let inch = valueIN / 1;
+
+    let height = (ft + inch / 12) / 3.28;
+
+    console.log(valueFT);
+
+    bmi = weight / (height * height);
+
+    let minWeightValue = (18.5 * (height * height)) / 6.35;
+    let maxWeightValue = (25 * (height * height)) / 6.35;
+
+    console.log(minWeightValue);
 
     welcomeSection.classList.add("hide");
     resultSection.classList.remove("hide");
 
     bmiCount.textContent = bmi.toFixed(1);
+    minWeight.textContent = minWeightValue.toFixed(1) + "st";
+    maxWeight.textContent = maxWeightValue.toFixed(1) + "st";
   } else {
     welcomeSection.classList.remove("hide");
     resultSection.classList.add("hide");
+  }
+  showNotHealthy(bmi);
+};
+
+const showNotHealthy = (bmi) => {
+  if (bmi < 18.5 || bmi > 24.9) {
+    notHealthy.classList.remove("hide");
+  } else {
+    notHealthy.classList.add("hide");
   }
 };
