@@ -52,14 +52,14 @@ const showContainer = (event) => {
 };
 
 const checkInput = (event) => {
-  if (isNaN(event.key) && event.key !== "Backspace" && event.e.keyCode !== 9) {
+  if (isNaN(event.key) && event.key !== "Backspace" && event.key !== "." && event.keyCode !== 9) {
     event.preventDefault();
   }
 };
 
 const calculateMetric = () => {
   const valueCM = parseInt(inputCM.value);
-  const valueKG = parseInt(inputKG.value);
+  const valueKG = parseFloat(inputKG.value);
 
   if (!isNaN(valueCM) && !isNaN(valueKG)) {
     const bmi = valueKG / ((valueCM / 100) * (valueCM / 100));

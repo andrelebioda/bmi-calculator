@@ -53,7 +53,8 @@ section {
 
     @media (max-width: 992px) {
       padding-top: 2rem;
-      margin-bottom: 6rem;
+      margin-bottom: 0rem;
+      padding-bottom: 6rem;
     }
 
     .hero-bg {
@@ -62,11 +63,19 @@ section {
       right: 0;
       grid-column: 1 / 11;
       z-index: -1;
+      max-width: 97%;
+      height: 100%;
 
       @media (max-width: 992px) {
         top: 0;
         bottom: auto;
         grid-column: 1 / 15;
+        max-width: 100%;
+        transform: translateY(-20%);
+      }
+
+      @media (max-width: 768px) {
+        transform: translateY(-40%);
       }
     }
 
@@ -549,6 +558,117 @@ section {
 
       &.sleep {
         grid-column: 10 / 14;
+      }
+    }
+  }
+
+  &.limitations {
+    grid-template-rows: auto;
+    margin-bottom: 7.5rem;
+
+    @media (max-width: 992px) {
+      margin-bottom: 6rem;
+    }
+
+    .limitation-intro {
+      grid-column: 2 / 8;
+      grid-row: 1;
+
+      @media (max-width: 992px) {
+        grid-column: 2 / 14;
+        grid-row: 1;
+        margin-bottom: 4.5rem;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 3rem;
+        line-height: 1.1;
+        color: var(--metal);
+        font-weight: 600;
+        margin-bottom: 2.25rem;
+        @media (max-width: 992px) {
+          font-size: 2rem;
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--electric-blue);
+        padding-right: 0.5rem;
+      }
+    }
+
+    > article {
+      &[class^="limitation"] {
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 1rem;
+        box-shadow: 10px 10px 45px rgba(0, 0, 0, 0.2);
+
+        > div {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1rem;
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          color: var(--metal);
+          font-weight: 600;
+          line-height: 1.1;
+        }
+
+        p {
+          font-size: 1rem;
+          color: var(--electric-blue);
+          line-height: 1.5;
+        }
+
+        @media (max-width: 767px) {
+          grid-column: 2 / 14 !important;
+          grid-row: auto !important;
+        }
+      }
+      &.limitation {
+        &-gender {
+          grid-column: 9 / 13;
+          grid-row: 1;
+          @media (max-width: 992px) {
+            grid-column: 2 / 8;
+            grid-row: 2;
+          }
+        }
+        &-age {
+          grid-column: 6 / 10;
+          grid-row: 2;
+          @media (max-width: 992px) {
+            grid-column: 8 / 14;
+            grid-row: 2;
+          }
+        }
+        &-muscle {
+          grid-column: 10 / 14;
+          grid-row: 2;
+          @media (max-width: 992px) {
+            grid-column: 2 / 8;
+            grid-row: 3;
+          }
+        }
+        &-pregnancy {
+          grid-column: 4 / 8;
+          grid-row: 3;
+          @media (max-width: 992px) {
+            grid-column: 8 / 14;
+            grid-row: 3;
+          }
+        }
+        &-race {
+          grid-column: 5 / 11;
+          grid-row: 4;
+        }
       }
     }
   }
